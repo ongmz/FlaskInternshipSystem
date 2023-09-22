@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for, redirect
 from pymysql import connections
 import boto3
 from config import *
+from datetime import datetime
 app = Flask(__name__)
 bucket = custombucket
 region = customregion
@@ -66,6 +67,83 @@ def reject_application():
 def company_application():
     # Render the admin.html template from a templates folder in your project directory
     return render_template('company-application.html')
+
+@app.route('/submit_company_application', methods=['POST'])
+def submit_company_application():
+    #Fetch the last companyID from database
+    cursor = db_conn.cursor()
+    search_sql = "SELECT max(CompanyID) from Company"
+    cursor.execute(search_sql)
+    fetched_comp_id = cursor.fetchone()[0]
+    cursor.close()
+
+    #Fetch admin ID from database
+    cursor = db_conn.cursor()
+    search_sql = "SELECT AdminID from Admin"
+    cursor.execute(search_sql)
+    admin_id = cursor.fetchone()[0]
+    cursor.close()
+
+    #Fetch company application ID from database
+    cursor = db_conn.cursor()
+    search_sql = "SELECT max(CompanyApplicationID) from CompanyApplication"
+    cursor.execute(search_sql)
+    fetched_comp_app_id = cursor.fetchone()[0]
+    cursor.close()
+
+    comp_id = int(fetched_comp_id) + 1
+    comp_app_id = int(fetched_comp_app_id) + 1
+    comp_name = request.form['companyName']
+    comp_add = request.form['companyAddress']
+    comp_email = request.form['companyEmailAddress']
+    comp_size = request.form['companySize']
+    comp_desc = request.form['companyDesc']
+    required_quali = request.form['requiredQual']
+    internship_pos = request.form['internshipPosition']
+    internship_allowance = request.form['internshipAllowance']
+    app_status = 'F'
+    curr_date = datetime.utcnow().date()
+    # comp_img = request.files['uploadCompany']
+
+    # Insert values into Company table
+    cursor = db_conn.cursor()
+    insert_sql1 = "INSERT INTO Company VALUES (%s, %s, %s, %s, %s, %s)"
+    cursor.execute(insert_sql1, (str(comp_id), comp_name, comp_add, comp_email, comp_size, comp_desc))
+    db_conn.commit()
+    cursor.close()
+
+    #Insert values into CompanyApplication table
+    cursor = db_conn.cursor()
+    insert_sql2 = "INSERT INTO CompanyApplication VALUES(%s, %s, %s, %s, %s, %s, %s, %s)"
+    cursor.execute("SET FOREIGN_KEY_CHECKS=0")
+    cursor.execute(insert_sql2, (str(comp_app_id), str(comp_id), required_quali, internship_pos, internship_allowance, app_status, admin_id, str(curr_date)))
+    cursor.execute("SET FOREIGN_KEY_CHECKS=1") 
+    db_conn.commit()
+    cursor.close()
+
+    # #Upload image file to S3
+    # img_file_name_in_s3 = "compID-" + str(comp_id) + '_img'
+    # s3 = boto3.resource('s3')
+
+    # try:
+    #     # print("Uploading image into S3 bucket ...")
+    #     s3.Bucket(custombucket).put_object(Key=img_file_name_in_s3, Body=comp_img)
+    #     bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+    #     s3_loc = (bucket_location['LocationConstraint'])
+
+    #     if s3_loc is None:
+    #         s3_loc = ''
+    #     else:
+    #         s3_loc = '-' + s3_loc
+        
+    #     object_url = "https:..s3{0}.amazonaws.com/{1}/{2}".format(s3_loc,custombucket,img_file_name_in_s3)
+
+    # except Exception as e:
+    #     return str(e)
+
+    # finally:
+    #     cursor.close()
+    return render_template('/template.html')
 
 @app.route('/lecturer.html')
 def lecturer():
