@@ -68,6 +68,7 @@ def company_application():
     # Render the admin.html template from a templates folder in your project directory
     return render_template('company-application.html')
 
+
 @app.route('/submit_company_application', methods=['POST'])
 def submit_company_application():
     #Fetch the last companyID from database
