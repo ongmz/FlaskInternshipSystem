@@ -1,0 +1,306 @@
+.student-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.student-navbar-interactive {
+  width: 100%;
+  display: flex;
+  box-shadow: 5px 5px 5px 0px rgba(29, 31, 33, 0.19);
+  align-items: center;
+  padding-top: var(--dl-space-space-twounits);
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  padding-left: var(--dl-space-space-threeunits);
+  border-radius: var(--dl-radius-radius-radius4);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+}
+.student-desktop-menu {
+  flex: 1;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+.student-links {
+  top: -4px;
+  flex: 1;
+  right: var(--dl-space-space-twounits);
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.student-navlink {
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
+}
+.student-navlink1 {
+  font-size: 16px;
+  text-align: left;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.student-navlink2 {
+  font-size: 16px;
+  text-align: left;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.student-burger-menu {
+  display: none;
+}
+.student-icon {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.student-mobile-menu {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 32px;
+  z-index: 100;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: 0.5s;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.student-nav {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.student-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-threeunits);
+  justify-content: space-between;
+}
+.student-logo {
+  height: 2rem;
+}
+.student-close-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.student-icon02 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.student-links1 {
+  flex: 0 0 auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.student-text {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-text01 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-text02 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-text03 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-text04 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-buttons {
+  display: flex;
+  margin-top: var(--dl-space-space-unit);
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.student-login {
+  margin-right: var(--dl-space-space-twounits);
+}
+.student-icon04 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+}
+.student-icon06 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+}
+.student-icon08 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.student-container1 {
+  width: 100%;
+  height: 954px;
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: rgba(133, 255, 235, 0.22);
+}
+.student-text05 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  position: absolute;
+  align-self: flex-start;
+  text-align: center;
+  padding-top: var(--dl-space-space-twounits);
+  padding-bottom: var(--dl-space-space-unit);
+}
+.student-container2 {
+  top: 102px;
+  flex: 0 0 auto;
+  left: 0px;
+  right: 0px;
+  width: 737px;
+  height: 261px;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-self: flex-start;
+  align-items: flex-start;
+}
+.student-image {
+  width: 256px;
+  height: 100%;
+  object-fit: cover;
+  margin-right: var(--dl-space-space-unit);
+}
+.student-container3 {
+  flex: 0 0 auto;
+  width: 456px;
+  display: flex;
+  box-shadow: 0px 5px 5px 0px #d4d4d4;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #ffffff;
+}
+.student-container4 {
+  flex: 0 0 auto;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.student-container5 {
+  width: 196px;
+  height: 260px;
+  display: flex;
+  align-items: flex-end;
+  margin-left: var(--dl-space-space-unit);
+  margin-right: var(--dl-space-space-unit);
+  flex-direction: column;
+  justify-content: center;
+}
+.student-text08 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-text09 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-text10 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-text11 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-text12 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-container6 {
+  flex: 0 0 auto;
+  width: 268px;
+  height: 260px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.student-student-name {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-student-id {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-student-programme {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-intern-date {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-intern-status {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.student-container7 {
+  flex: 0 0 auto;
+  width: 700px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  padding-top: var(--dl-space-space-threeunits);
+  flex-direction: row;
+  justify-content: space-between;
+}
+.student-navlink3 {
+  color: #ffffff;
+  width: 300px;
+  height: 200px;
+  font-size: 28px;
+  font-style: normal;
+  font-family: Comic Sans MS;
+  font-weight: 700;
+  border-radius: 10%;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background-color: #000000;
+}
+.student-navlink4 {
+  color: #ffffff;
+  width: 300px;
+  height: 200px;
+  font-size: 28px;
+  text-align: center;
+  font-family: Comic Sans MS;
+  border-radius: var(--dl-radius-radius-radius8);
+  letter-spacing: 1px;
+  text-decoration: none;
+  background-color: #000000;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+.student-text13 {
+  font-style: normal;
+  font-weight: 700;
+}

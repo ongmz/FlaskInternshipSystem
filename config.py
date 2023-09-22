@@ -1,0 +1,6 @@
+customhost = "internshipsystem.ciljn65lhiji.us-east-1.rds.amazonaws.com"
+customuser = "aws_user"
+custompass = "awsusers"
+customdb = "internship"
+custombucket = "wilsonpangvuicheng-bucket"
+customregion = "us-east-1"

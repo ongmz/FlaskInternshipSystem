@@ -1,0 +1,232 @@
+.admin-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.admin-navbar-interactive {
+  width: 100%;
+  display: flex;
+  box-shadow: 5px 5px 5px 0px rgba(29, 31, 33, 0.19);
+  align-items: center;
+  padding-top: var(--dl-space-space-twounits);
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  padding-left: var(--dl-space-space-threeunits);
+  border-radius: var(--dl-radius-radius-radius4);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+}
+.admin-desktop-menu {
+  flex: 1;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+.admin-links {
+  top: -4px;
+  flex: 1;
+  right: var(--dl-space-space-twounits);
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.admin-navlink {
+  font-size: 16px;
+  text-align: left;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.admin-navlink1 {
+  font-size: 16px;
+  text-align: left;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.admin-burger-menu {
+  display: none;
+}
+.admin-icon {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.admin-mobile-menu {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 32px;
+  z-index: 100;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: 0.5s;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.admin-nav {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.admin-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-threeunits);
+  justify-content: space-between;
+}
+.admin-logo {
+  height: 2rem;
+}
+.admin-close-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-icon02 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.admin-links1 {
+  flex: 0 0 auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.admin-text {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.admin-text01 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.admin-text02 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.admin-text03 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.admin-text04 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.admin-buttons {
+  display: flex;
+  margin-top: var(--dl-space-space-unit);
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.admin-login {
+  margin-right: var(--dl-space-space-twounits);
+}
+.admin-icon04 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+}
+.admin-icon06 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+}
+.admin-icon08 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.admin-container01 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(133, 255, 235, 0.22);
+}
+.admin-text05 {
+  margin: auto;
+  align-self: flex-start;
+  text-align: center;
+  line-height: 1.25;
+  padding-top: var(--dl-space-space-twounits);
+  padding-bottom: var(--dl-space-space-unit);
+}
+.admin-text08 {
+  text-decoration: underline;
+}
+
+#application-container {
+  display: flex;
+  flex-direction: row; /* Change to column to stack divs vertically */
+  flex-wrap: wrap; /* Allow divs to wrap to new columns */
+  justify-content: space-evenly;
+  width: 70%;
+}
+
+.company-list {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row; /* Change to column to stack divs vertically */
+  flex-wrap: wrap; /* Allow divs to wrap to new columns */
+  justify-content: space-evenly;
+  width: 40%;
+
+  margin: 10px; /* Add margin to create space between divs */
+}
+
+.company-image-container{
+  width: 40%;
+  margin: 10px;
+}
+
+.company-image-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.company-description-box{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  line-height: 30px;
+}
+
+
+.approve-button,
+.reject-button {
+  color: #fff;
+  font-size: 10px;
+  padding: 10px;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s; /* Add a transition for the transform property */
+}
+
+.approve-button {
+  background-color: black;
+  width: 45%;
+}
+
+.reject-button {
+  background-color: red;
+  width: 45%;
+}
+
+/* Add a hover effect to scale the buttons */
+.approve-button:hover,
+.reject-button:hover {
+  transform: scale(1.2); /* Scale the button to 110% size */
+}
+
+
+
+

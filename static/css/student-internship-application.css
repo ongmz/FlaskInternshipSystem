@@ -1,0 +1,333 @@
+.student-internship-application-container {
+  width: 100%;
+  display: flex;
+  z-index: 100;
+  overflow: auto;
+  box-shadow: 5px 5px 10px 5px #00cee3;
+  min-height: 100vh;
+  align-items: center;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  flex-direction: column;
+}
+.student-internship-application-navbar-interactive {
+  width: 100%;
+  display: flex;
+  box-shadow: 5px 5px 5px 0px rgba(29, 31, 33, 0.19);
+  align-items: center;
+  padding-top: var(--dl-space-space-twounits);
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  padding-left: var(--dl-space-space-threeunits);
+  border-radius: var(--dl-radius-radius-radius4);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+}
+.student-internship-application-desktop-menu {
+  flex: 1;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+.student-internship-application-links {
+  top: -4px;
+  flex: 1;
+  right: var(--dl-space-space-twounits);
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.student-internship-application-navlink {
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
+}
+.student-internship-application-navlink1 {
+  font-size: 16px;
+  text-align: left;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.student-internship-application-navlink2 {
+  font-size: 16px;
+  text-align: left;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.student-internship-application-burger-menu {
+  display: none;
+}
+.student-internship-application-icon {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.student-internship-application-mobile-menu {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 32px;
+  z-index: 100;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: 0.5s;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.student-internship-application-nav {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.student-internship-application-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-threeunits);
+  justify-content: space-between;
+}
+.student-internship-application-logo {
+  height: 2rem;
+}
+.student-internship-application-close-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.student-internship-application-icon02 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.student-internship-application-links1 {
+  flex: 0 0 auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.student-internship-application-text {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text01 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text02 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text03 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text04 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-buttons {
+  display: flex;
+  margin-top: var(--dl-space-space-unit);
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.student-internship-application-login {
+  margin-right: var(--dl-space-space-twounits);
+}
+.student-internship-application-icon04 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+}
+.student-internship-application-icon06 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+}
+.student-internship-application-icon08 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+.student-internship-application-container1 {
+  width: 100%;
+  height: 954px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgba(133, 255, 235, 0.22);
+}
+.student-internship-application-text05 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  position: absolute;
+  align-self: flex-start;
+  text-align: center;
+  padding-top: var(--dl-space-space-twounits);
+  padding-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-container2 {
+  top: 100px;
+  flex: 0 0 auto;
+  left: 432px;
+  width: 282px;
+  height: 685px;
+  display: flex;
+  position: absolute;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.student-internship-application-text06 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text07 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text10 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text13 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text16 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text19 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text22 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-container3 {
+  top: 100px;
+  flex: 0 0 auto;
+  left: 755px;
+  width: 371px;
+  height: 685px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.student-internship-application-form {
+  width: 100%;
+  height: 325px;
+  display: flex;
+  flex-direction: column;
+}
+.student-internship-application-textinput {
+  width: 100%;
+  font-size: 24px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  line-height: 1.5;
+  padding-top: 0px;
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-unit);
+  padding-bottom: 0px;
+}
+.student-internship-application-textinput1 {
+  width: 100%;
+  font-size: 24px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  line-height: 1.5;
+  padding-top: 0px;
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-unit);
+  padding-bottom: 0px;
+}
+.student-internship-application-textinput2 {
+  width: 100%;
+  font-size: 24px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  line-height: 1.5;
+  padding-top: 0px;
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-unit);
+  padding-bottom: 0px;
+}
+.student-internship-application-textinput3 {
+  width: 100%;
+  font-size: 24px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  line-height: 1.5;
+  padding-top: 0px;
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-unit);
+  padding-bottom: 0px;
+}
+.student-internship-application-textinput4 {
+  width: 100%;
+  font-size: 24px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  line-height: 1.5;
+  padding-top: 0px;
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-unit);
+  padding-bottom: 0px;
+}
+.student-internship-application-textinput5 {
+  width: 100%;
+  font-size: 24px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  line-height: 1.5;
+  padding-top: 0px;
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-unit);
+  padding-bottom: 0px;
+}
+.student-internship-application-button {
+  width: var(--dl-size-size-medium);
+}
+.student-internship-application-container4 {
+  top: 500px;
+  flex: 0 0 auto;
+  left: 0px;
+  right: 0px;
+  width: 400px;
+  height: auto;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-self: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.student-internship-application-navlink3 {
+  color: #ffffff;
+  width: 150px;
+  height: 70px;
+  font-size: 28px;
+  font-family: Comic Sans MS;
+  border-radius: 32px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background-color: #000000;
+}
+.student-internship-application-button1 {
+  color: #ffffff;
+  width: 150px;
+  height: 70px;
+  font-size: 28px;
+  font-family: Comic Sans MS;
+  border-width: 0px;
+  border-radius: 32px;
+  letter-spacing: 1px;
+  background-color: #ff0101;
+}
