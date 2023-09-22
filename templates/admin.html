@@ -93,9 +93,15 @@
                 <h3>{{row[1]}}</h3>
               </div>
               <div class="company-description-approval-box">
-                <button type="button" class="approve-button"><h4>Approve</h4></button>
-                <button type="button" class="reject-button"><h4>Reject</h4></button>
-              </div>
+                <form action="/approve_application" method="post" class="approval-form">
+                    <input type="hidden" name="application_id" value="{{ row[2] }}">
+                    <button type="submit" class="approve-button"><h4>Approve</h4></button>
+                </form>
+                <form action="/reject_application" method="post" class="approval-form">
+                    <input type="hidden" name="application_id" value="{{ row[2] }}">
+                    <button type="submit" class="reject-button"><h4>Reject</h4></button>
+                </form>
+            </div>
             </div>
             <div class="company-image-container">
               <img src="{{url_for('static', filename='public/pictures/tesla-300h.jpeg')}}"> 
