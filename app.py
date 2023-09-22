@@ -119,6 +119,7 @@ def submit_company_application():
     cursor.execute(insert_sql2, (str(comp_app_id), str(comp_id), required_quali, internship_pos, internship_allowance, app_status, admin_id, str(curr_date)))
     cursor.execute("SET FOREIGN_KEY_CHECKS=1") 
     db_conn.commit()
+    
     cursor.close()
 
     # #Upload image file to S3
