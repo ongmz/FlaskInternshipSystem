@@ -13,7 +13,6 @@ db_conn = connections.Connection(
     password=custompass,
     db=customdb
 )
-#test
 
 @app.route('/')
 def index():
@@ -78,6 +77,29 @@ def student_view_progress():
 def student_add_progress():
     # Render the student.html template from a templates folder in your project directory
     return render_template('student-add-record.html')
+
+# Testing function to update the ApplicationStatus in CompanyApplication table
+def update_application_status():
+    cursor = db_conn.cursor()
+    cursor.execute('UPDATE CompanyApplication SET ApplicationStatus = %s WHERE ApplicationStatus = %s;', ('TTTT', 'F'))
+    db_conn.commit()  
+    cursor.close()
+
+def fetch_and_print():
+    # Fetch data from the CompanyApplication table
+    cursor = db_conn.cursor()
+    cursor.execute('SELECT * FROM CompanyApplication;')
+    company_application_rows = cursor.fetchall()
+    print("\nContents of the CompanyApplication table:")
+    for row in company_application_rows:
+        print(row)
+
+# Call the function to update the data
+# update_application_status()
+
+# Read CompanyApplication table to check
+# fetch_and_print()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
