@@ -115,7 +115,7 @@
             </div>
             </div>
             <div class="company-image-container">
-              <img src="{{url_for('static', filename='public/pictures/tesla-300h.jpeg')}}"> 
+              <img src="https://s3.amazonaws.com/ongmingzheng-bucket/{{ row[6] }}">
             </div>
           </div>
           {% endfor %}
@@ -147,6 +147,6 @@
           });
       });
       </script>
-      
+
   </body>
 </html>

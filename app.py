@@ -5,7 +5,7 @@ from config import *
 from datetime import datetime
 app = Flask(__name__)
 
-bucket = 'company-applications-2023' # Need to change the bucket name follow assignment specification
+bucket = 'ongmingzheng-bucket' # Need to change the bucket name follow assignment specification
 region = 'us-west-1'
 
 db_conn = connections.Connection(
@@ -28,7 +28,7 @@ def index2():
 @app.route('/admin.html' ,methods=['GET'])
 def admin():
     cursor = db_conn.cursor()
-    cursor.execute('SELECT CompanyName, RequiredSkillSet, InternshipBenefit, ApplicationDate, CompanyApplicationID, ApplicationStatus FROM Company C, CompanyApplication CA, Admin A WHERE C.CompanyID = CA.CompanyID AND CA.AdminID = A.AdminID;')
+    cursor.execute('SELECT CompanyName, RequiredSkillSet, InternshipBenefit, ApplicationDate, CompanyApplicationID, ApplicationStatus, S3Key FROM Company C, CompanyApplication CA, Admin A WHERE C.CompanyID = CA.CompanyID AND CA.AdminID = A.AdminID;')
     company_application_rows = cursor.fetchall()
     cursor.close()
     return render_template('admin.html' ,company_application_rows=company_application_rows)
@@ -122,10 +122,17 @@ def submit_company_application():
 
             # Set a unique key for the uploaded file in S3
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-            s3_key = f'company_pdfs/{timestamp}_{uploaded_file.filename}'
+            s3_key = f'company_images/{timestamp}_{uploaded_file.filename}'
             
             # Upload the file
-            s3.Bucket('company-applications-2023').put_object(Key=s3_key, Body=uploaded_file)  # Replace 'your-bucket-name' with the specific bucket name
+            s3.Bucket('company-applications-2023').put_object(Key=s3_key, Body=uploaded_file) 
+
+            # Store S3 Key in database
+            cursor = db_conn.cursor()
+            update_sql = "UPDATE CompanyApplication SET S3Key = %s WHERE CompanyApplicationID = %s"
+            cursor.execute(update_sql, (s3_key, str(comp_app_id)))
+            db_conn.commit()
+            cursor.close()
 
         except Exception as e:
             flash(f'An error occurred: {str(e)}', 'error')
