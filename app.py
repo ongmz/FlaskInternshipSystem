@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, flash
 from pymysql import connections
 import boto3
 from config import *
@@ -132,19 +132,21 @@ def submit_company_application():
     if uploaded_file and uploaded_file.filename != '':
         try:
             # Initialize the S3 client
-            s3 = boto3.resource('s3')
+            s3 = boto3.resource('s3', region_name='us-east-1')  # Replace 'your-region' with the specific region
 
             # Set a unique key for the uploaded file in S3
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
             s3_key = f'company_pdfs/{timestamp}_{uploaded_file.filename}'
-            s3.Bucket(custombucket).put_object(Key=s3_key, Body=uploaded_file)
-            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-            s3_location = (bucket_location['LocationConstraint'])
+            
+            # Upload the file
+            s3.Bucket('company-applications-2023').put_object(Key=s3_key, Body=uploaded_file)  # Replace 'your-bucket-name' with the specific bucket name
 
         except Exception as e:
-            return str(e)
+            flash(f'An error occurred: {str(e)}', 'error')
+            return redirect(url_for('index'))
     else:
-        s3_file_url = None
+        flash('No file selected!', 'error')
+        return redirect(url_for('index'))
 
     # #Upload image file to S3
     # img_file_name_in_s3 = "compID-" + str(comp_id) + '_img'
