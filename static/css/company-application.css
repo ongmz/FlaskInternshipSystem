@@ -105,45 +105,7 @@
   align-items: flex-start;
   flex-direction: column;
 }
-.company-application-text {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.company-application-text01 {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.company-application-text02 {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.company-application-text03 {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.company-application-text04 {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.company-application-buttons {
-  display: flex;
-  margin-top: var(--dl-space-space-unit);
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.company-application-login {
-  margin-right: var(--dl-space-space-twounits);
-}
-.company-application-icon04 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
-.company-application-icon06 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
-.company-application-icon08 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-}
+
 .company-application-container1 {
   width: 100%;
   height: 954px;
