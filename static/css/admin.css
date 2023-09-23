@@ -216,7 +216,7 @@
 .approve-button,
 .reject-button {
   color: #fff;
-  font-size: 8px;
+  font-size: 12px;
   padding: 10px;
   border-radius: 32px;
   text-align: center;
@@ -227,16 +227,37 @@
 
 .approve-button {
   background-color: black;
-  width: 60px;
+  width: 80px;
 }
 
 .reject-button {
   background-color: red;
-  width: 60px;
+  width: 80px;
 }
 
-/* Add a hover effect to scale the buttons */
 .approve-button:hover,
 .reject-button:hover {
   transform: scale(1.2); /* Scale the button to 110% size */
+}
+
+.status-approved {
+  color: green;
+  font-weight: 900;
+  font-size: 14px; 
+  text-align: center;
+  padding: 5px 0px;
+  border: 2px solid green;
+  border-radius: 32px;
+  width: 105px;
+}
+
+.status-rejected {
+  color: red;
+  font-weight: 900;
+  font-size: 14px; 
+  text-align: center;
+  padding: 5px 0px;
+  border: 2px solid red;
+  border-radius: 32px;
+  width: 105px;
 }

@@ -62,10 +62,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/admin.css')}}"/> 
   </head>
   <body>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div>
-      
-
       <div class="admin-container">
         <header data-thq="thq-navbar" class="admin-navbar-interactive">
           <div data-thq="thq-navbar-nav" class="admin-desktop-menu">
@@ -73,8 +71,8 @@
               <a href="index.html" class="admin-navlink">Home</a>
               <a href="portfolio.html" class="admin-navlink1">Portfolio</a>
             </nav>
- 
         </header>
+
         <div class="admin-container01">
           <h1 class="admin-text05">
             <span>Admin</span>
@@ -96,23 +94,59 @@
                 <h3>Registered Date: {{row[3]}}</h3>
               </div>
               <div class="company-description-approval-box">
+                {% if row[5] == "Pending" %}
                 <form action="/approve_application" method="post" class="approval-form">
-                      <input type="hidden" name="application_id" value="{{ row[4] }}">
-                      <button type="submit" class="approve-button"><h4>Approve</h4></button>
-                  </form>
-                  <form action="/reject_application" method="post" class="approval-form">
-                      <input type="hidden" name="application_id" value="{{ row[4] }}">
-                      <button type="submit" class="reject-button"><h4>Reject</h4></button>
-                  </form>
-              </div>
+                  <input type="hidden" name="application_id" value="{{ row[4] }}">
+                  <button type="submit" class="approve-button">
+                    <h4>Approve</h4>
+                  </button>
+                </form>
+                <form action="/reject_application" method="post" class="approval-form">
+                  <input type="hidden" name="application_id" value="{{ row[4] }}">
+                  <button type="submit" class="reject-button">
+                    <h4>Reject</h4>
+                  </button>
+                </form>
+                {% elif row[5] == "Approved" %}
+                <div class="status-approved">{{ row[5] }}</div>
+                {% elif row[5] == "Rejected" %}
+                <div class="status-rejected">{{ row[5] }}</div>
+                {% endif %}
+            </div>
             </div>
             <div class="company-image-container">
               <img src="{{url_for('static', filename='public/pictures/tesla-300h.jpeg')}}"> 
             </div>
           </div>
           {% endfor %}
+
         </div>
       </div>
     </div>
+
+    <script>
+      $(document).ready(function() {
+          $(".approve-button, .reject-button").click(function(e) {
+              e.preventDefault();
+              
+              var form = $(this).closest("form");
+              var actionURL = form.attr("action");
+              
+              $.post(actionURL, form.serialize(), function(response) {
+                  // Assuming the server sends back a JSON object with a `status` key.
+                  if(response.status == "success") {
+                      if(actionURL.includes("/approve_application")) {
+                          form.parent().html('<div class="status-approved">Approved</div>');
+                      } else if(actionURL.includes("/reject_application")) {
+                          form.parent().html('<div class="status-rejected">Rejected</div>');
+                      }
+                  } else {
+                      alert("There was an error processing the request.");
+                  }
+              });
+          });
+      });
+      </script>
+      
   </body>
 </html>

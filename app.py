@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, url_for, redirect, flash, jsonify
 from pymysql import connections
 import boto3
 from config import *
@@ -27,10 +27,8 @@ def index2():
 
 @app.route('/admin.html' ,methods=['GET'])
 def admin():
-    # Render the admin.html template from a templates folder in your project directory
     cursor = db_conn.cursor()
-
-    cursor.execute('SELECT CompanyName, RequiredSkillSet, InternshipBenefit, ApplicationDate, CompanyApplicationID FROM Company C, CompanyApplication CA, Admin A WHERE C.CompanyID = CA.CompanyID AND CA.AdminID = A.AdminID;')
+    cursor.execute('SELECT CompanyName, RequiredSkillSet, InternshipBenefit, ApplicationDate, CompanyApplicationID, ApplicationStatus FROM Company C, CompanyApplication CA, Admin A WHERE C.CompanyID = CA.CompanyID AND CA.AdminID = A.AdminID;')
     company_application_rows = cursor.fetchall()
     cursor.close()
     return render_template('admin.html' ,company_application_rows=company_application_rows)
@@ -38,12 +36,11 @@ def admin():
 @app.route('/approve_application', methods=['POST'])
 def approve_application():
     application_id = request.form.get('application_id')
-    print("APP ID " + application_id)
     cursor = db_conn.cursor()
     cursor.execute('UPDATE CompanyApplication SET ApplicationStatus = %s WHERE CompanyApplicationID = %s;', ('Approved', application_id,))
     db_conn.commit()
     cursor.close()
-    return redirect('/admin.html')
+    return jsonify(status="success", action="approved")
 
 @app.route('/reject_application', methods=['POST'])
 def reject_application():
@@ -52,8 +49,7 @@ def reject_application():
     cursor.execute('UPDATE CompanyApplication SET ApplicationStatus = %s WHERE CompanyApplicationID = %s;', ('Rejected', application_id,))
     db_conn.commit()
     cursor.close()
-    return redirect('/admin.html')
-
+    return jsonify(status="success", action="rejected")
 
 @app.route('/company-application.html')
 def company_application():
