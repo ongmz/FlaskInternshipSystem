@@ -77,6 +77,7 @@ def submit_company_application():
     cursor.execute(search_sql)
     fetched_comp_id = cursor.fetchone()[0]
     cursor.close()
+    
 
     #Fetch admin ID from database
     cursor = db_conn.cursor()
@@ -176,6 +177,61 @@ def lecturer_approve():
 def student_internship_application():
     # Render the student.html template from a templates folder in your project directory
     return render_template('student-internship-application.html')
+
+@app.route('/submit_internship_application', methods=['GET','POST'])
+def submit_student_internship_application():
+
+    stu_name = request.form['studentName']
+    stu_id = request.form['studentID']
+    stu_add = request.form['studentAddress']
+    stu_email = request.form['studentEmailAddress']
+    stu_prog = request.form['studentProgramme']
+    stu_intern_co = request.form['studentInternCompany']
+    stu_intern_start_date = request.form['studentInternStartDate']
+    stu_intern_end_date = request.form['studentInternEndDate']
+    stu_study_intern_status = 'T'
+    stu_intern_pos = 'Intern'
+
+    #Fetch last internship ID from database
+    cursor = db_conn.cursor()
+    search_sql = "SELECT max(InternshipID) from StudentInternship"
+    cursor.execute(search_sql)
+    fetched_intern_id = cursor.fetchone()[0]
+    stu_intern_id = int(fetched_intern_id) + 1
+    cursor.close()
+
+    #Fetch lecture ID from database
+    cursor = db_conn.cursor()
+    search_sql = "SELECT max(LecturerID) from Lecturer"
+    cursor.execute(search_sql)
+    lec_id = cursor.fetchone()[0]
+    cursor.close()
+
+    #Find company ID with company name from database
+    cursor = db_conn.cursor()
+    stu_intern_co = stu_intern_co.lower()
+    search_sql = "SELECT CompanyID FROM Company WHERE LOWER(CompanyName)=%s"
+    cursor.execute(search_sql, (stu_intern_co))
+    co_id = cursor.fetchone()[0]
+    cursor.close()
+
+    # Insert values into Student table
+    cursor = db_conn.cursor()
+    insert_sql1 = "INSERT INTO Student VALUES (%s, %s, %s, %s, %s, %s)"
+    cursor.execute(insert_sql1, (stu_id, stu_name, stu_email, stu_add, stu_prog, stu_study_intern_status))
+    db_conn.commit()
+    cursor.close()
+
+    # Insert values into StudentInternship table
+    cursor = db_conn.cursor()
+    insert_sql2 = "INSERT INTO StudentInternship VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+    cursor.execute("SET FOREIGN_KEY_CHECKS=0")
+    cursor.execute(insert_sql2, (str(stu_intern_id), stu_id, lec_id, co_id, stu_intern_start_date, stu_intern_end_date, stu_intern_pos, stu_study_intern_status))
+    cursor.execute("SET FOREIGN_KEY_CHECKS=1")
+    db_conn.commit()
+    cursor.close()
+
+    return render_template('/template.html')
 
 @app.route('/student-view-progress.html')
 def student_view_progress():

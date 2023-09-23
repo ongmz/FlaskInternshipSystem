@@ -210,6 +210,16 @@
   line-height: 1.5;
   margin-bottom: var(--dl-space-space-unit);
 }
+.student-internship-application-text20 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.student-internship-application-text21 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: var(--dl-space-space-unit);
+}
 .student-internship-application-text22 {
   font-size: 24px;
   line-height: 1.5;
@@ -292,11 +302,38 @@
   margin-bottom: var(--dl-space-space-unit);
   padding-bottom: 0px;
 }
+.student-internship-application-textinput6 {
+  width: 100%;
+  font-size: 24px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  line-height: 1.5;
+  padding-top: 0px;
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-unit);
+  padding-bottom: 0px;
+}
+.student-internship-application-textinput7 {
+  width: 100%;
+  font-size: 24px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  line-height: 1.5;
+  padding-top: 0px;
+  border-width: 0px;
+  margin-bottom: var(--dl-space-space-unit);
+  padding-bottom: 0px;
+}
+
+.student-internship-application-upload {
+  padding: 25px; /* Background color for the input */
+  border-radius: 5px; /* Rounded corners */
+  width: 300px; /* Set a specific width for the input */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
 .student-internship-application-button {
   width: var(--dl-size-size-medium);
 }
 .student-internship-application-container4 {
-  top: 500px;
+  top: 650px;
   flex: 0 0 auto;
   left: 0px;
   right: 0px;
