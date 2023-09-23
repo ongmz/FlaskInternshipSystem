@@ -66,7 +66,6 @@ def submit_company_application():
     fetched_comp_id = cursor.fetchone()[0]
     cursor.close()
     
-
     #Fetch admin ID from database
     cursor = db_conn.cursor()
     search_sql = "SELECT AdminID from Admin"
