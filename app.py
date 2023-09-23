@@ -122,8 +122,28 @@ def submit_company_application():
     cursor.execute(insert_sql2, (str(comp_app_id), str(comp_id), required_quali, internship_pos, internship_allowance, app_status, admin_id, str(curr_date)))
     cursor.execute("SET FOREIGN_KEY_CHECKS=1") 
     db_conn.commit()
-    
     cursor.close()
+
+    # File upload
+    uploaded_file = request.files['uploadCompany']
+    print(request.files)
+
+    if uploaded_file and uploaded_file.filename != '':
+        try:
+            # Initialize the S3 client
+            s3 = boto3.resource('s3')
+
+            # Set a unique key for the uploaded file in S3
+            timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+            s3_key = f'company_pdfs/{timestamp}_{uploaded_file.filename}'
+            s3.Bucket(custombucket).put_object(Key=s3_key, Body=uploaded_file)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+        except Exception as e:
+            return str(e)
+    else:
+        s3_file_url = None
 
     # #Upload image file to S3
     # img_file_name_in_s3 = "compID-" + str(comp_id) + '_img'
