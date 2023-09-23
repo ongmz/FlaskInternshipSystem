@@ -103,9 +103,9 @@ def submit_company_application():
 
     #Insert values into CompanyApplication table
     cursor = db_conn.cursor()
-    insert_sql2 = "INSERT INTO CompanyApplication VALUES(%s, %s, %s, %s, %s, %s, %s, %s)"
+    insert_sql2 = "INSERT INTO CompanyApplication VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor.execute("SET FOREIGN_KEY_CHECKS=0")
-    cursor.execute(insert_sql2, (str(comp_app_id), str(comp_id), required_quali, internship_pos, internship_allowance, app_status, admin_id, str(curr_date)))
+    cursor.execute(insert_sql2, (str(comp_app_id), str(comp_id), required_quali, internship_pos, internship_allowance, app_status, admin_id, str(curr_date), 'null'))
     cursor.execute("SET FOREIGN_KEY_CHECKS=1") 
     db_conn.commit()
     cursor.close()
