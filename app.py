@@ -249,5 +249,32 @@ def student_add_progress():
     # Render the student.html template from a templates folder in your project directory
     return render_template('student-add-record.html')
 
+@app.route('/add_new_record', methods=['POST'])
+def add_progress_record():
+    rec_date = request.form['recordDate']
+    rec_assg = request.form['assignment']
+
+    #Fetch last StudentProgress ID from database
+    cursor = db_conn.cursor()
+    search_sql = "SELECT max(StudentProgressID) from StudentProgress"
+    cursor.execute(search_sql)
+    fetched_stuprog_id = cursor.fetchone()[0]
+    stu_intern_id = int(fetched_stuprog_id) + 1
+    cursor.close()
+
+    app_status = 'Pending'
+    InternID = '1000'
+
+    # Insert values into StudentProgress table
+    cursor = db_conn.cursor()
+    insert_sql = "INSERT INTO StudentProgress VALUES (%s, %s, %s, %s, %s)"
+    cursor.execute("SET FOREIGN_KEY_CHECKS=0")
+    cursor.execute(insert_sql, (str(stu_intern_id), rec_date, rec_assg, app_status, InternID))
+    cursor.execute("SET FOREIGN_KEY_CHECKS=1")
+    db_conn.commit()
+    cursor.close()
+
+    return render_template('/template.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
