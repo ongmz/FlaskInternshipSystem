@@ -4,8 +4,12 @@ import boto3
 from config import *
 from datetime import datetime
 app = Flask(__name__)
-bucket = custombucket
-region = customregion
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True)
+
+bucket = 'company-applications-2023'
+region = 'us-west-1'
 
 db_conn = connections.Connection(
     host=customhost,
