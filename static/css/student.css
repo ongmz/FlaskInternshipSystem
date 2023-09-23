@@ -186,7 +186,7 @@
 }
 .student-container3 {
   flex: 0 0 auto;
-  width: 456px;
+  width: 600px;
   display: flex;
   box-shadow: 0px 5px 5px 0px #d4d4d4;
   align-items: flex-start;
@@ -234,7 +234,7 @@
 }
 .student-container6 {
   flex: 0 0 auto;
-  width: 268px;
+  width: 350px;
   height: 260px;
   display: flex;
   align-items: flex-start;
@@ -274,7 +274,7 @@
 .student-navlink3 {
   color: #ffffff;
   width: 300px;
-  height: 200px;
+  height: 100px;
   font-size: 28px;
   font-style: normal;
   font-family: Comic Sans MS;
@@ -287,7 +287,7 @@
 .student-navlink4 {
   color: #ffffff;
   width: 300px;
-  height: 200px;
+  height: 100px;
   font-size: 28px;
   text-align: center;
   font-family: Comic Sans MS;

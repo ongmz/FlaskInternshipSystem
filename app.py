@@ -160,10 +160,14 @@ def lecturer():
     # Render the admin.html template from a templates folder in your project directory
     return render_template('lecturer.html', student_list=student_list)
 
-@app.route('/student.html')
+@app.route('/student.html', methods=['GET'])
 def student():
     # Render the admin.html template from a templates folder in your project directory
-    return render_template('student.html')
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT StudentName, S.StudentID, Programme, StartDate, EndDate, InternshipStatus FROM Student S, StudentInternship SI WHERE S.StudentID = SI.StudentID AND S.StudentID='12WMR0001';")
+    student_info = cursor.fetchall()
+    cursor.close()
+    return render_template('student.html' ,student_info_rows=student_info)
 
 @app.route('/portfolio.html')
 def portfolio():

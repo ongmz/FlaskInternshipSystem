@@ -148,17 +148,19 @@
                   <span class="student-text12">Status:</span>
                 </div>
               </div>
+              {% for row in student_info_rows %}
               <div class="student-container6">
-                <span id="studentName" class="student-student-name">Text</span>
-                <span id="studentID" class="student-student-id">Text</span>
+                <span id="studentName" class="student-student-name">{{row[0]}}</span>
+                <span id="studentID" class="student-student-id">{{row[1]}}</span>
                 <span id="studentProgramme" class="student-student-programme">
-                  Text
+                  {{row[2]}}
                 </span>
-                <span id="internDate" class="student-intern-date">Text</span>
+                <span id="internDate" class="student-intern-date">{{row[3]}} -> {{row[4]}}</span>
                 <span id="internStatus" class="student-intern-status">
-                  Text
+                  {{row[5]}}
                 </span>
               </div>
+              {% endfor %}
             </div>
           </div>
           <div class="student-container7">
