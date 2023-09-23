@@ -253,4 +253,14 @@
   align-items: center;
   text-align: center;
   line-height: 40px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4); 
+}
+
+.student-image img {
+  width: 150px;
+  max-width: 150px; 
+  height: 200px;
+  max-height: 200px; 
+  margin: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(180, 250, 169, 0.5); 
 }

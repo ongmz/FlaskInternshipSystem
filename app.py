@@ -18,7 +18,7 @@ db_conn = connections.Connection(
 
 @app.route('/')
 def index():
-    print('Hello')
+    print('Hello')  
     return render_template('index.html')
 
 @app.route('/index.html')
@@ -148,8 +148,7 @@ def submit_company_application():
 def lecturer():
     # Render the admin.html template from a templates folder in your project directory
     cursor = db_conn.cursor()
-
-    cursor.execute('SELECT S.StudentName, S.StudentID, S.Programme FROM Lecturer L, StudentInternship SI, Student S WHERE L.LecturerID = SI.LecturerID AND SI.StudentID = S.StudentID;')
+    cursor.execute('SELECT S.StudentName, S.StudentID, S.Programme, S.S3Key FROM Lecturer L, StudentInternship SI, Student S WHERE L.LecturerID = SI.LecturerID AND SI.StudentID = S.StudentID;')
     student_list = cursor.fetchall()
     cursor.close()
     # Render the admin.html template from a templates folder in your project directory
