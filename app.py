@@ -5,9 +5,6 @@ from config import *
 from datetime import datetime
 app = Flask(__name__)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
-
 bucket = 'company-applications-2023'
 region = 'us-west-1'
 
@@ -279,4 +276,4 @@ def student_add_progress():
     return render_template('student-add-record.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
