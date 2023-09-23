@@ -6,7 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 bucket = 'ongmingzheng-bucket' # Need to change the bucket name follow assignment specification
-region = 'us-west-1'
+region = 'us-east-1'
 
 db_conn = connections.Connection(
     host=customhost,
@@ -124,7 +124,7 @@ def submit_company_application():
             s3_key = f'company_images/{timestamp}_{uploaded_file.filename}'
             
             # Upload the file
-            s3.Bucket('company-applications-2023').put_object(Key=s3_key, Body=uploaded_file) 
+            s3.Bucket(bucket).put_object(Key=s3_key, Body=uploaded_file) 
 
             # Store S3 Key in database
             cursor = db_conn.cursor()
