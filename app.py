@@ -239,10 +239,23 @@ def submit_student_internship_application():
 
     return render_template('/template.html')
 
-@app.route('/student-view-progress.html')
+@app.route('/student-view-progress.html', methods=['GET'])
 def student_view_progress():
     # Render the student.html template from a templates folder in your project directory
-    return render_template('student-view-progress.html')
+
+    # Student info display
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT StudentName, S.StudentID, Programme, StartDate, EndDate, InternshipStatus FROM Student S, StudentInternship SI WHERE S.StudentID = SI.StudentID AND S.StudentID='12WMR0001';")
+    student_info = cursor.fetchall()
+    cursor.close()
+
+    # Student progress display
+    cursor = db_conn.cursor()
+    cursor.execute("SELECT Date, Description, ApprovalStatus FROM StudentProgress;")
+    stu_progress = cursor.fetchall()
+    cursor.close()
+
+    return render_template('student-view-progress.html' ,student_info_rows=student_info, stu_progress_rows=stu_progress)
 
 @app.route('/student-add-record.html')
 def student_add_progress():

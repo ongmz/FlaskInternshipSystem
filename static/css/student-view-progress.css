@@ -161,6 +161,7 @@
   margin: auto;
   position: absolute;
   align-self: flex-start;
+  align-content: center;
   text-align: center;
   padding-top: var(--dl-space-space-twounits);
   padding-bottom: var(--dl-space-space-unit);
@@ -170,13 +171,15 @@
   flex: 0 0 auto;
   left: 0px;
   right: 0px;
-  width: 737px;
+  width: 1001px;
   height: 261px;
-  margin: auto;
+  margin-left: 23%;
+  /* display: flex;
+  position: absolute; */
+  flex-wrap: wrap;
+  flex-direction: column;
   display: flex;
   position: absolute;
-  align-self: flex-start;
-  align-items: flex-start;
 }
 .student-view-progress-image {
   width: 256px;
@@ -186,7 +189,7 @@
 }
 .student-view-progress-container03 {
   flex: 0 0 auto;
-  width: 456px;
+  width: 600px;
   display: flex;
   box-shadow: 0px 5px 5px 0px #d4d4d4;
   align-items: flex-start;
@@ -234,7 +237,7 @@
 }
 .student-view-progress-container06 {
   flex: 0 0 auto;
-  width: 268px;
+  width: 350px;
   height: 260px;
   display: flex;
   align-items: flex-start;
@@ -263,11 +266,13 @@
 }
 .student-view-progress-container07 {
   top: 420px;
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
   left: 0px;
   right: 0px;
   width: 1001px;
   height: 340px;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin: auto;
   display: flex;
   position: absolute;
@@ -276,14 +281,16 @@
 }
 .student-view-progress-container08 {
   gap: 0;
-  top: 0px;
+  /* top: 0px; */
   flex: 0 0 auto;
-  left: 50px;
+  /* left: 50px; */
   width: 90%;
   height: 60px;
   margin: auto;
+  margin-top: auto;
+  margin-left: auto;
   display: flex;
-  position: absolute;
+  /* position: absolute; */
   box-shadow: 0px 2px 5px 3px rgba(0, 0, 0, 0.17);
   align-items: center;
   border-color: var(--dl-color-gray-black);
@@ -315,50 +322,56 @@
 }
 .student-view-progress-container09 {
   gap: 0;
-  top: 240px;
   flex: 0 0 auto;
-  left: 50px;
   width: 90%;
   height: 60px;
   margin: auto;
+  margin-top: auto;
+  margin-left: auto;
   display: flex;
-  position: absolute;
   box-shadow: 0px 2px 5px 3px rgba(0, 0, 0, 0.17);
+  flex-wrap: wrap;
   align-items: center;
   border-color: var(--dl-color-gray-black);
   border-style: dotted;
   border-width: 0px;
   border-radius: var(--dl-radius-radius-radius4);
-  justify-content: flex-start;
+  justify-content:flex-start;
   background-color: #ffffff;
 }
 .student-view-progress-text23 {
   top: 16px;
-  left: 40px;
-  position: absolute;
+  margin-left: 35px;
+  width: 30px;
+  justify-content: flex-end;
   font-size: 24px;
 }
 .student-view-progress-text26 {
   top: 16px;
   left: 110px;
-  position: absolute;
+  margin-left: var(--dl-space-space-twounits);
   font-size: 24px;
 }
 .student-view-progress-text29 {
   top: 16px;
   left: 360px;
-  position: absolute;
+  margin-left: var(--dl-space-space-twounits);
+  width: 450px;
   font-size: 24px;
 }
+
+.student-view-progress-status {
+  top: 16px;
+  margin-left: var(--dl-space-space-twounits);
+  margin-left: 5%;
+  font-size: 24px;
+  justify-content: flex-end;
+}
 .student-view-progress-checkbox {
-  top: 0px;
   flex: 1;
-  right: 75px;
-  width: 32px;
-  bottom: 0px;
   height: 32px;
-  margin: auto;
-  position: absolute;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .student-view-progress-container10 {
   gap: 0;
@@ -455,18 +468,16 @@
   position: absolute;
 }
 .student-view-progress-container12 {
-  flex: 0 0 auto;
-  left: 0px;
-  right: 0px;
-  width: 600px;
+  width: 1000px;
+  top: 400px;
   bottom: 120px;
-  height: auto;
-  margin: auto;
   display: flex;
-  position: absolute;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
+  margin-left: 250px;
+  align-self: center;
+  
 }
+
 .student-view-progress-navlink3 {
   color: #ffffff;
   width: 250px;
@@ -479,6 +490,7 @@
   letter-spacing: 1px;
   text-decoration: none;
   background-color: #000000;
+  transform: translateX(-30%);
 }
 .student-view-progress-navlink4 {
   color: #ffffff;
@@ -490,5 +502,7 @@
   border-radius: 32px;
   letter-spacing: 1px;
   text-decoration: none;
+  text-align: center;
   background-color: #000000;
+  transform: translateX(30%);
 }
