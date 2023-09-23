@@ -5,7 +5,7 @@ from config import *
 from datetime import datetime
 app = Flask(__name__)
 
-bucket = 'company-applications-2023'
+bucket = 'company-applications-2023' # Need to change the bucket name follow assignment specification
 region = 'us-west-1'
 
 db_conn = connections.Connection(
@@ -30,15 +30,15 @@ def admin():
     # Render the admin.html template from a templates folder in your project directory
     cursor = db_conn.cursor()
 
-    cursor.execute('SELECT CompanyName, RequiredSkillSet, InternshipBenefit, ApplicationDate FROM Company C, CompanyApplication CA, Admin A WHERE C.CompanyID = CA.CompanyID AND CA.AdminID = A.AdminID;')
+    cursor.execute('SELECT CompanyName, RequiredSkillSet, InternshipBenefit, ApplicationDate, CompanyApplicationID FROM Company C, CompanyApplication CA, Admin A WHERE C.CompanyID = CA.CompanyID AND CA.AdminID = A.AdminID;')
     company_application_rows = cursor.fetchall()
     cursor.close()
-    print('Fetch from database')
     return render_template('admin.html' ,company_application_rows=company_application_rows)
 
 @app.route('/approve_application', methods=['POST'])
 def approve_application():
     application_id = request.form.get('application_id')
+    print("APP ID " + application_id)
     cursor = db_conn.cursor()
     cursor.execute('UPDATE CompanyApplication SET ApplicationStatus = %s WHERE CompanyApplicationID = %s;', ('Approved', application_id,))
     db_conn.commit()
@@ -52,16 +52,6 @@ def reject_application():
     cursor.execute('UPDATE CompanyApplication SET ApplicationStatus = %s WHERE CompanyApplicationID = %s;', ('Rejected', application_id,))
     db_conn.commit()
     cursor.close()
-
-    cursor = db_conn.cursor()
-    cursor.execute('SELECT * FROM CompanyApplication;')
-    columns = [desc[0] for desc in cursor.description]
-    company_application_rows = cursor.fetchall()
-    print("\nContents of the CompanyApplication table:")
-    print(columns)
-    for row in company_application_rows:
-        print(row)
-
     return redirect('/admin.html')
 
 
@@ -148,28 +138,6 @@ def submit_company_application():
         flash('No file selected!', 'error')
         return redirect(url_for('index'))
 
-    # #Upload image file to S3
-    # img_file_name_in_s3 = "compID-" + str(comp_id) + '_img'
-    # s3 = boto3.resource('s3')
-
-    # try:
-    #     # print("Uploading image into S3 bucket ...")
-    #     s3.Bucket(custombucket).put_object(Key=img_file_name_in_s3, Body=comp_img)
-    #     bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-    #     s3_loc = (bucket_location['LocationConstraint'])
-
-    #     if s3_loc is None:
-    #         s3_loc = ''
-    #     else:
-    #         s3_loc = '-' + s3_loc
-        
-    #     object_url = "https:..s3{0}.amazonaws.com/{1}/{2}".format(s3_loc,custombucket,img_file_name_in_s3)
-
-    # except Exception as e:
-    #     return str(e)
-
-    # finally:
-    #     cursor.close()
     return render_template('/template.html')
 
 @app.route('/lecturer.html')
