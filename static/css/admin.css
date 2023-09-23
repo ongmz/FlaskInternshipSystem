@@ -171,11 +171,12 @@
 .company-list {
   background-color: #fff;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Adjusts positioning of the child divs */
-  width: 450px; /* Take up full width */
-  margin: 10px;
-  align-items: center; /* Vertically center if there's a height difference */
+  flex-direction: row; /* Change to column to stack divs vertically */
+  flex-wrap: wrap; /* Allow divs to wrap to new columns */
+  justify-content: space-evenly;
+  width: 40%;
+
+  margin: 10px; /* Add margin to create space between divs */
 }
 
 .company-image-container{
@@ -189,21 +190,25 @@
   object-fit: fill;
 }
 
-.company-description-box {
+.company-description-box{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   text-align: center;
   line-height: 30px;
-  padding: 10px; /* Padding for spacing */
-  position: relative; /* Set to relative for absolute positioning of children if needed */
-  width: 300px;
+}
+
+.company-description{
+  font-size: 10px;
+  
 }
 
 .approve-button,
 .reject-button {
+
   color: #fff;
-  font-size: 10px;
+  font-size: 8px;
   padding: 10px;
   border-radius: 32px;
   text-align: center;
@@ -213,36 +218,18 @@
 
 .approve-button {
   background-color: black;
-  width: 45%;
+  width: 80px;
 }
 
 .reject-button {
   background-color: red;
-  width: 45%;
+  width: 80px;
 }
 
 /* Add a hover effect to scale the buttons */
 .approve-button:hover,
 .reject-button:hover {
   transform: scale(1.2); /* Scale the button to 110% size */
-}
-
-.company-description-approval-box {
-  display: flex;
-  justify-content: center; /* Align the buttons to the start (left) */
-  align-items: center;
-  margin-top: auto; /* Pushes the box to the bottom */
-}
-
-.approve-button, .reject-button {
-  margin: 0 10px; /* Add some spacing between buttons */
-  width: 100px;
-}
-
-.company-image-container {
-  flex: 1; /* Adjust this value based on the desired width of the image vs text */
-  margin: 10px;
-  align-self: stretch; /* Stretch the container to full height of parent */
 }
 
 

@@ -133,6 +133,7 @@
             </div>
           </div>
         </header>
+
         <div class="lecturer-container01">
           <h1 class="lecturer-text05">
             <span>Lecturer</span>
@@ -157,68 +158,30 @@
               <span class="lecturer-faculty">FOCS</span>
             </div>
           </div>
-          <div class="lecturer-container04">
-            <a href="lecturer-approve.html">
-              <div class="lecturer-container05">
-                  <img
-                  alt="image"
-                  src="{{url_for('static', filename='public/pictures/student-200w.png')}}"
-                  class="lecturer-image1"
-                />
-                <div class="lecturer-container06">
-                  <span class="lecturer-student-name">Lim Kai Xiang</span>
-                  <span class="lecturer-student-id">12WMR0003</span>
-                  <span class="lecturer-student-course">Data Science</span>
-                </div>
-                
-              </div>
-            </a>
-            <a href="lecturer-approve.html">
-              <div class="lecturer-container07">
-                <img
-                  alt="image"
-                  src="{{url_for('static', filename='public/pictures/student-200w.png')}}"
-                  class="lecturer-image2"
-                />
-                <div class="lecturer-container08">
-                  <span class="lecturer-student-name1">Tan Ah Hua</span>
-                  <span class="lecturer-student-id1">12WMR0001</span>
-                  <span class="lecturer-student-course1">Data Science</span>
-                </div>
-              </div>
-            </a>
-            <a href="lecturer-approve.html">
-              <div class="lecturer-container09">
-                <img
-                  alt="image"
-                  src="{{url_for('static', filename='public/pictures/student-200w.png')}}"
-                  class="lecturer-image3"
-                />
-                <div class="lecturer-container10">
-                  <span class="lecturer-student-name2">Chan Long</span>
-                  <span class="lecturer-student-id2">12WMR0002</span>
-                  <span class="lecturer-student-course2">Data Science</span>
-                </div>
-              </div>
-            </a>
-            <a href="lecturer-approve.html">
-              <div class="lecturer-container11">
-                <img
-                  alt="image"
-                  src="{{url_for('static', filename='public/pictures/student-200w.png')}}"
-                  class="lecturer-image4"
-                />
-                <div class="lecturer-container12">
-                  <span class="lecturer-student-name3">Ng Fatt Fatt</span>
-                  <span class="lecturer-student-id3">12WMR0888</span>
-                  <span class="lecturer-student-course3">Data Science</span>
-                </div>
-              </div>
-            </a>
-          </div>
+
+        <div id="lecturer-student-container">
+
+          {% for row in student_list %}
+          
+          <a class="student-container" href="lecturer-approve.html?id={{row[1]}}">
+            <div class="student-detail">
+              <h3>NAME: {{row[0]}}</h3>
+              <h3>ID: {{row[1]}}</h3>
+              <h3>PROGRAMME: {{row[2]}}</h3>
+            </div>
+            <div class="student-image">
+              <img src="{{url_for('static', filename='public/pictures/student-200w.png')}}">
+            </div>          
+          </a>
+          {% endfor %}
+
+        </div>  
+
         </div>
       </div>
     </div>
+
+    
     <script
       defer=""
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"

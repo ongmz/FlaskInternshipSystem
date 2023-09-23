@@ -39,7 +39,6 @@
 .lecturer-navlink {
   font-size: 16px;
   text-align: left;
-  margin-left: var(--dl-space-space-twounits);
   text-decoration: none;
 }
 .lecturer-navlink1 {
@@ -49,6 +48,18 @@
   text-decoration: none;
 }
 .lecturer-navlink2 {
+  font-size: 16px;
+  text-align: left;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.lecturer-navlink3 {
+  font-size: 16px;
+  text-align: left;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.lecturer-navlink4 {
   font-size: 16px;
   text-align: left;
   margin-left: var(--dl-space-space-twounits);
@@ -148,9 +159,8 @@
 }
 .lecturer-container01 {
   width: 100%;
-  height: 954px;
   display: flex;
-  position: relative;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: rgba(133, 255, 235, 0.22);
@@ -160,7 +170,6 @@
   left: 0px;
   right: 0px;
   margin: auto;
-  position: absolute;
   align-self: flex-start;
   text-align: center;
   padding-top: var(--dl-space-space-twounits);
@@ -174,7 +183,6 @@
   width: 664px;
   margin: auto;
   display: flex;
-  position: absolute;
   align-self: center;
   flex-direction: row;
   justify-content: center;
@@ -221,212 +229,28 @@
   position: absolute;
   font-size: 24px;
 }
-.lecturer-container04 {
-  flex: 0 0 auto;
-  left: 0px;
-  right: 0px;
-  width: 1008px;
-  bottom: 31px;
-  height: 592px;
-  margin: auto;
+
+
+/*Student List Css Start Here*/
+#lecturer-student-container{
+  margin-top: 50px;
+  width: 70%;
   display: flex;
-  position: absolute;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.lecturer-container05 {
-  flex: 0 0 auto;
-  left: var(--dl-space-space-fourunits);
-  width: 425px;
-  bottom: var(--dl-space-space-twounits);
-  height: 250px;
-  margin: auto;
-  display: flex;
-  position: absolute;
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
-  align-items: flex-start;
-  background-color: #ffffff;
-}
-.lecturer-image1 {
-  top: 0px;
-  right: 30px;
-  width: 176px;
-  bottom: 0px;
-  height: 184px;
-  margin: auto;
-  position: absolute;
-  object-fit: cover;
-}
-.lecturer-container06 {
-  top: 0px;
-  flex: 0 0 auto;
-  left: 10px;
-  width: 200px;
-  bottom: 0px;
-  height: 180px;
-  margin: auto;
-  display: flex;
-  position: absolute;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
-  flex-direction: column;
-  justify-content: center;
+
 }
-.lecturer-student-name {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-student-id {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-student-course {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-container07 {
-  top: var(--dl-space-space-twounits);
-  flex: 0 0 auto;
-  left: var(--dl-space-space-fourunits);
-  width: 425px;
-  height: 250px;
-  margin: auto;
+
+.student-container{
+  margin: 20px 0px;
+  background-color: #fff;
+  width: 40%;
   display: flex;
-  position: absolute;
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
-  align-items: flex-start;
-  background-color: #ffffff;
-}
-.lecturer-image2 {
-  top: 0px;
-  right: 30px;
-  width: 176px;
-  bottom: 0px;
-  height: 184px;
-  margin: auto;
-  position: absolute;
-  object-fit: cover;
-}
-.lecturer-container08 {
-  top: 0px;
-  flex: 0 0 auto;
-  left: 10px;
-  width: 200px;
-  bottom: 0px;
-  height: 180px;
-  margin: auto;
-  display: flex;
-  position: absolute;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-.lecturer-student-name1 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-student-id1 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-student-course1 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-container09 {
-  top: var(--dl-space-space-twounits);
-  flex: 0 0 auto;
-  right: var(--dl-space-space-fourunits);
-  width: 425px;
-  height: 250px;
-  margin: auto;
-  display: flex;
-  position: absolute;
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
-  align-items: flex-start;
-  background-color: #ffffff;
-}
-.lecturer-image3 {
-  top: 0px;
-  right: 30px;
-  width: 176px;
-  bottom: 0px;
-  height: 184px;
-  margin: auto;
-  position: absolute;
-  object-fit: cover;
-}
-.lecturer-container10 {
-  top: 0px;
-  flex: 0 0 auto;
-  left: 10px;
-  width: 200px;
-  bottom: 0px;
-  height: 180px;
-  margin: auto;
-  display: flex;
-  position: absolute;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-.lecturer-student-name2 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-student-id2 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-student-course2 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-container11 {
-  flex: 0 0 auto;
-  right: var(--dl-space-space-fourunits);
-  width: 425px;
-  bottom: var(--dl-space-space-twounits);
-  height: 250px;
-  margin: auto;
-  display: flex;
-  position: absolute;
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
-  align-items: flex-start;
-  background-color: #ffffff;
-}
-.lecturer-image4 {
-  top: 0px;
-  right: 30px;
-  width: 176px;
-  bottom: 0px;
-  height: 184px;
-  margin: auto;
-  position: absolute;
-  object-fit: cover;
-}
-.lecturer-container12 {
-  top: 0px;
-  flex: 0 0 auto;
-  left: 10px;
-  width: 200px;
-  bottom: 0px;
-  height: 180px;
-  margin: auto;
-  display: flex;
-  position: absolute;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-.lecturer-student-name3 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-student-id3 {
-  font-size: 24px;
-  line-height: 1.5;
-}
-.lecturer-student-course3 {
-  font-size: 24px;
-  line-height: 1.5;
+  text-align: center;
+  line-height: 40px;
 }

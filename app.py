@@ -29,9 +29,10 @@ def admin():
     # Render the admin.html template from a templates folder in your project directory
     cursor = db_conn.cursor()
 
-    cursor.execute('SELECT CompanyName, ApplicationDate, CompanyApplicationID FROM Company C, CompanyApplication CA, Admin A WHERE C.CompanyID = CA.CompanyID AND CA.AdminID = A.AdminID;')
+    cursor.execute('SELECT CompanyName, RequiredSkillSet, InternshipBenefit, ApplicationDate FROM Company C, CompanyApplication CA, Admin A WHERE C.CompanyID = CA.CompanyID AND CA.AdminID = A.AdminID;')
     company_application_rows = cursor.fetchall()
     cursor.close()
+    print('Fetch from database')
     return render_template('admin.html' ,company_application_rows=company_application_rows)
 
 @app.route('/approve_application', methods=['POST'])
@@ -151,7 +152,13 @@ def submit_company_application():
 @app.route('/lecturer.html')
 def lecturer():
     # Render the admin.html template from a templates folder in your project directory
-    return render_template('lecturer.html')
+    cursor = db_conn.cursor()
+
+    cursor.execute('SELECT S.StudentName, S.StudentID, S.Programme FROM Lecturer L, StudentInternship SI, Student S WHERE L.LecturerID = SI.LecturerID AND SI.StudentID = S.StudentID;')
+    student_list = cursor.fetchall()
+    cursor.close()
+    # Render the admin.html template from a templates folder in your project directory
+    return render_template('lecturer.html', student_list=student_list)
 
 @app.route('/student.html')
 def student():
