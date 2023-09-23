@@ -153,7 +153,7 @@ def lecturer():
     student_list = cursor.fetchall()
     cursor.close()
     # Render the admin.html template from a templates folder in your project directory
-    return render_template('lecturer.html', student_list=student_list)
+    return render_template('lecturer.html', student_list=student_list )
 
 @app.route('/student.html', methods=['GET'])
 def student():
@@ -174,10 +174,74 @@ def template():
     # Render the student.html template from a templates folder in your project directory
     return render_template('template.html')
 
-@app.route('/lecturer-approve.html')
-def lecturer_approve():
+@app.route('/lecturer-approve-this')
+def lecturer_approve_this():
+    studentID = request.args.get('studentID')
+    print(studentID)
+    internship_progress = ()
+    try:
+        # Query for student information
+        InternshipID = ''
+        with db_conn.cursor() as cursor:
+            sqlQuery1 = f"""SELECT S.StudentName, S.StudentID, S.Programme, SI.StartDate, SI.EndDate, S.StudyStatus, SI.InternshipID FROM Student S, StudentInternship SI WHERE S.StudentID = SI.StudentID AND S.StudentID = '{studentID}';"""
+            cursor.execute(sqlQuery1)
+            student_record = cursor.fetchall()
+
+            if not student_record:
+                # Handle the case where no student record is found
+                return "Student not found"
+
+            student_info = {
+                'StudentName': student_record[0][0],
+                'StudentID': student_record[0][1],
+                'Programme': student_record[0][2],
+                'StartDate': student_record[0][3],
+                'EndDate': student_record[0][4],
+                'StudyStatus': student_record[0][5]
+            }
+            InternshipID = student_record[0][6]
+
+            # Query for internship progress (reuse the same cursor)
+            sqlQuery2 = f"""SELECT SP.Date, SP.Description, SP.ApprovalStatus, SP.StudentProgressID FROM StudentInternship SI, StudentProgress SP WHERE SI.InternshipID = SP.InternshipID AND SP.InternshipID = '{InternshipID}';"""
+            cursor.execute(sqlQuery2)
+            internship_progress = cursor.fetchall()
+
+    except Exception as e:
+        # Handle database errors or exceptions
+        return f"An error occurred: {str(e)}"
+    print('Done reading from Database')
+    print(f'Internship ID: {InternshipID}')
+    print(internship_progress)
     # Render the student.html template from a templates folder in your project directory
-    return render_template('lecturer-approve.html')
+    return render_template('lecturer-approve.html', internship_progress=internship_progress, student_info=student_info)
+
+
+@app.route('/approved.html')
+def lecturer_approve():
+    StudentProgressID = request.args.get('StudentProgressID')
+    sqlQuery = f""" UPDATE StudentProgress
+                    SET ApprovalStatus = 'Approved'
+                    WHERE StudentProgressID = '{StudentProgressID}';
+"""
+    cursor = db_conn.cursor()
+    cursor.execute(sqlQuery)
+    db_conn.commit()
+    cursor.close()
+    return render_template('approved.html')
+
+@app.route('/rejected.html')
+def lecturer_reject():
+    StudentProgressID = request.args.get('StudentProgressID')
+    sqlQuery = f""" UPDATE StudentProgress
+                    SET ApprovalStatus = 'Rejected'
+                    WHERE StudentProgressID = '{StudentProgressID}';
+"""
+    cursor = db_conn.cursor()
+    cursor.execute(sqlQuery)
+    db_conn.commit()
+    cursor.close()
+
+    return render_template('rejected.html')
 
 @app.route('/student-internship-application.html')
 def student_internship_application():
