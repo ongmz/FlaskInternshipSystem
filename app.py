@@ -78,6 +78,8 @@ def submit_company_application():
     search_sql = "SELECT max(CompanyApplicationID) from CompanyApplication"
     cursor.execute(search_sql)
     fetched_comp_app_id = cursor.fetchone()[0]
+    if fetched_comp_app_id is None:
+        fetched_comp_app_id = 0
     cursor.close()
 
     comp_id = int(fetched_comp_id) + 1
