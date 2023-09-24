@@ -286,7 +286,7 @@ def submit_student_internship_application():
 
     # Insert values into Student table
     cursor = db_conn.cursor()
-    insert_sql1 = "INSERT INTO Student VALUES (%s, %s, %s, %s, %s, %s)"
+    insert_sql1 = "INSERT INTO Student (StudentID, StudentName, StudentEmail, StudentAddress, Programme, StudyStatus) VALUES (%s, %s, %s, %s, %s, %s)"
     cursor.execute(insert_sql1, (stu_id, stu_name, stu_email, stu_add, stu_prog, stu_study_intern_status))
     db_conn.commit()
     cursor.close()
