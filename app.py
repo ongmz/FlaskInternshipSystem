@@ -176,6 +176,7 @@ def template():
 @app.route('/lecturer-approve-this')
 def lecturer_approve_this():
     studentID = request.args.get('studentID')
+    imageUrl = request.args.get('imageUrl')
     print(studentID)
     internship_progress = ()
     try:
@@ -212,7 +213,7 @@ def lecturer_approve_this():
     print(f'Internship ID: {InternshipID}')
     print(internship_progress)
     # Render the student.html template from a templates folder in your project directory
-    return render_template('lecturer-approve.html', internship_progress=internship_progress, student_info=student_info)
+    return render_template('lecturer-approve.html', internship_progress=internship_progress, student_info=student_info, imageUrl=imageUrl)
 
 
 @app.route('/approved.html')

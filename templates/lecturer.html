@@ -106,7 +106,7 @@
 
           {% for row in student_list %}
           
-          <a class="student-container" href="/lecturer-approve-this?studentID={{row[1]}}">
+          <a class="student-container" href="/lecturer-approve-this?studentID={{row[1]}}&imageUrl=https://ongmingzheng-bucket.s3.amazonaws.com/{{ row[3] }}">
             <div class="student-detail">
               <h3>NAME: {{row[0]}}</h3>
               <h3>ID: {{row[1]}}</h3>
