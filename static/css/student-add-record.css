@@ -172,7 +172,7 @@
 .student-add-record-container2 {
   top: 100px;
   flex: 0 0 auto;
-  left: 395px;
+  left: 20%;
   width: 282px;
   height: 685px;
   display: flex;
@@ -193,7 +193,8 @@
 .student-add-record-container3 {
   top: 100px;
   flex: 0 0 auto;
-  left: 712px;
+  left: 50%;
+  right: 80px;
   width: 371px;
   height: 685px;
   display: flex;
@@ -204,6 +205,8 @@
 .student-add-record-form {
   width: 100%;
   height: 174px;
+  right: 25%;
+  position: absolute;
   display: flex;
   flex-direction: column;
 }
@@ -228,10 +231,10 @@
   padding-bottom: 0px;
 }
 .student-add-record-navlink3 {
-  top: 239px;
+  top: 120px;
   left: 0px;
   color: #ffffff;
-  right: 0px;
+  right: 80px;
   width: 200px;
   height: 100px;
   margin: auto;

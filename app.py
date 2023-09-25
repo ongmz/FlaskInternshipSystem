@@ -119,7 +119,11 @@ def submit_company_application():
     if uploaded_file and uploaded_file.filename != '':
         try:
             # Initialize the S3 client
-            s3 = boto3.resource('s3', region_name='us-east-1')  # Replace 'your-region' with the specific region
+            s3 = boto3.resource('s3', region_name='us-east-1', 
+                                aws_access_key_id='ASIA2RKLRXNIPBQCAP6M',
+                                aws_secret_access_key='nxDxJ9jcUN03eTHV72/h/+O/O9RbH2bMSb5hH+gU',
+                                aws_session_token='FwoGZXIvYXdzEHMaDElgMTBUFQMNYaid4CLPAXB4Q3dtjqrcWRWjHEh9IYrul8qxBomCWwS2cAJDEq2HlhjE/G0PXbDbQZqcmn9uqAhhqTa29ovYwT52RyJnv8QJ/zoGyfogp/acnUxaVWqrkZhLGhXI6BgQIGVSrxXLj++wZmP8h9M0Jzc3Vt7e1/KYiLcPdCOV7fKqdrCWWglGtjon/R/jVjTLen0r17Rgs/6/OGBkqf6/1HGxWoqA6ZKInXcajrSKI+Qx14s6KZmHoS+0RWOhvANXUwQC/dgRptUhHVMpWFsZ9GHVEoDVLyj0tMWoBjItB2yylrodJaSoM0pYypCeCM/+d0I0FZEuFhsbX27hJmkgRUIyb+PGldYfRdRR'
+                                ) 
 
             # Set a unique key for the uploaded file in S3
             timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
