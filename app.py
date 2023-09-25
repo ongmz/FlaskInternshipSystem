@@ -120,9 +120,9 @@ def submit_company_application():
         try:
             # Initialize the S3 client
             s3 = boto3.resource('s3', region_name='us-east-1', 
-                                aws_access_key_id='ASIA2RKLRXNIPBQCAP6M',
-                                aws_secret_access_key='nxDxJ9jcUN03eTHV72/h/+O/O9RbH2bMSb5hH+gU',
-                                aws_session_token='FwoGZXIvYXdzEHMaDElgMTBUFQMNYaid4CLPAXB4Q3dtjqrcWRWjHEh9IYrul8qxBomCWwS2cAJDEq2HlhjE/G0PXbDbQZqcmn9uqAhhqTa29ovYwT52RyJnv8QJ/zoGyfogp/acnUxaVWqrkZhLGhXI6BgQIGVSrxXLj++wZmP8h9M0Jzc3Vt7e1/KYiLcPdCOV7fKqdrCWWglGtjon/R/jVjTLen0r17Rgs/6/OGBkqf6/1HGxWoqA6ZKInXcajrSKI+Qx14s6KZmHoS+0RWOhvANXUwQC/dgRptUhHVMpWFsZ9GHVEoDVLyj0tMWoBjItB2yylrodJaSoM0pYypCeCM/+d0I0FZEuFhsbX27hJmkgRUIyb+PGldYfRdRR'
+                                aws_access_key_id='ASIA2RKLRXNIPT6ANZBP',
+                                aws_secret_access_key='/VTKjkneraECrSm/Um+Eb46Vypdlc85ju3aOaysO',
+                                aws_session_token='FwoGZXIvYXdzEHcaDIIcWL3YXY6FVHG/jiLPAYEPS4u5qjIBrcBp0b9eEx5IlVyJBXUa2coamarujXjriGazHS0aWrJXzjU5CPLVrKU79xeJif8z0bfvAhtDj8U+g5ng4IervqDDDG+rJJpUF2xFSkU56O6VwYPPAI3z9Q2lf67+80lczIaWRF68lcO8pXaBQ5rIwJBKhLTpm9PaFlu4bpBCrXDLr+MnPF8Yl3gSq3iqwBzO40OuJ5DyIwFZwEucT0tfs8pDuRTFdcbcmiyabtztNfPmdw1gfwmCX2j0bJcC4/P16bxDScjciyisj8aoBjIt1LxDcS0SBMxiZLr7DeFmTHeiU+P21FuumjYv9UTrD8MSXBjfASeM7vsKiSZ6'
                                 ) 
 
             # Set a unique key for the uploaded file in S3
